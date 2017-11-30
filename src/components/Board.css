@@ -1,0 +1,10 @@
+.board {
+  width: 600px;
+  height: 600px;
+  display: inline-block;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+  border: 1px solid #E6E9ED;
+}
+.board-wrapper {
+  text-align: center;
+}
