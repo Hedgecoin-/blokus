@@ -34,6 +34,36 @@ export function PlayPiece(board, piece){
     case 'F':
       PlayF(board, piece);
       break;
+    case 'L5':
+      PlayL5(board, piece);
+      break;
+    case 'N':
+      PlayN(board, piece);
+      break;
+    case 'P':
+      PlayP(board, piece);
+      break;
+    case 'T5':
+      PlayT5(board, piece);
+      break;
+    case 'U':
+      PlayU(board, piece);
+      break;
+    case 'V5':
+      PlayV5(board, piece);
+      break;
+    case 'W':
+      PlayW(board, piece);
+      break;
+    case 'X':
+      PlayX(board, piece);
+      break;
+    case 'Y':
+      PlayY(board, piece);
+      break;
+    case 'Z5':
+      PlayZ5(board, piece);
+      break;
     default:
       break;
   }
@@ -336,6 +366,196 @@ function PlayF(board, piece){
       PieceToTile(board, piece, 0, 0);
       PieceToTile(board, piece, 0, 1);
       PieceToTile(board, piece, 1, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayL5(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayN(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayP(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayT5(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayU(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayV5(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayW(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayX(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayY(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayZ5(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, 0, 0);
+      break;
+    case '270':
+      PieceToTile(board, piece, 0, 0);
       break;
     default:
       break;
