@@ -25,6 +25,8 @@ export function PlayPiece(board, piece){
     case 'Z4':
       PlayZ4(board, piece);
       break;
+    case 'T4':
+      PlayT4(board, piece);
     default:
       break;
   }
@@ -237,6 +239,37 @@ function PlayZ4(board, piece){
       PieceToTile(board, piece, -1, 1);
       PieceToTile(board, piece, 0, 1);
       PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      break;
+    default:
+      break;
+  }
+}
+function PlayT4(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      PieceToTile(board, piece, 1, 0);
+      break;
+    case '90':
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      break;
+    case '270':
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
       PieceToTile(board, piece, 1, 0);
       break;
     default:
