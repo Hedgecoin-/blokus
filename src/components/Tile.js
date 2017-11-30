@@ -7,10 +7,10 @@ export default class Tile extends Component {
     const { x, y, color } = this.props;
     var style = {};
     if(x === 19){
-      style.borderRight = "none";
+      style.borderRight = "rgba(0,0,0,0)";
     }
     if(y === 19){
-      style.borderBottom = "none";
+      // style.borderBottom = "rgba(0,0,0,0)";
     }
 
     switch (color) {
