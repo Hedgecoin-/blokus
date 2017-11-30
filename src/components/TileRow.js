@@ -7,10 +7,12 @@ import './TileRow.css';
 
 export default class TileRow extends Component {
   render(){
+    const { boardRow } = this.props;
+
 
     const tiles = [];
     for(var i=0; i<boardWidth; i++){
-      tiles.push(<Tile key={i} />);
+      tiles.push(<Tile key={i} x={boardRow[i].x} y={boardRow[i].y} color={boardRow[i].color} />);
     }
 
     return (

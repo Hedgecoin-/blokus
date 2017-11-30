@@ -8,10 +8,10 @@ import './Board.css';
 
 export default class Board extends Component {
   render(){
+    const { board } = this.props;
     const tileRows = [];
-
     for(var i=0; i<boardHeight; i++){
-      tileRows.push(<TileRow key={i} />);
+      tileRows.push(<TileRow key={i} boardRow={board[i]}/>);
     }
 
     return (
