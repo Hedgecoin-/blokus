@@ -40,7 +40,7 @@ class App extends Component {
     this.setState({ boards: boards });
 
     // Testing states
-    var name = 'cube';
+    var name = 'z4';
     this.addPiece(parseTurn("RED,"+name+",3,3,0,1"));
     this.addPiece(parseTurn("RED,"+name+",7,7,1,1"));
     this.addPiece(parseTurn("RED,"+name+",12,12,2,1"));
@@ -48,7 +48,7 @@ class App extends Component {
 
     // this.addPiece(parseTurn("GREEN,2,13,11,0,1"));
     // this.addPiece(parseTurn("YELLOW,1,18,18,1,1"));
-    // this.addPiece(parseTurn("BLUE,1,18,19,1,1"));
+    this.addPiece(parseTurn("BLUE,1,19,19,1,1"));
   }
 
   addPiece = (piece) => {
@@ -120,7 +120,7 @@ class App extends Component {
           onForward={this.handleForward}
           onFastForward={this.handleFastForward}
         />
-        <Board board={boards[currentBoard]} />
+        <Board board={boards[boards.length-1]} />
       </div>
     );
   }

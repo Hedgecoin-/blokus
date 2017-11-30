@@ -5,12 +5,13 @@ import './Tile.css';
 export default class Tile extends Component {
   render(){
     const { x, y, color } = this.props;
+
     var style = {};
     if(x === 19){
       style.borderRight = "rgba(0,0,0,0)";
     }
     if(y === 19){
-      // style.borderBottom = "rgba(0,0,0,0)";
+      style.borderBottom = "rgba(0,0,0,0)";
     }
 
     switch (color) {

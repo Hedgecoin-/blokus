@@ -19,33 +19,47 @@ export function PlayPiece(board, piece){
     case 'O':
       PlayO(board, piece);
       break;
+    case 'L4':
+      PlayL4(board, piece);
+      break;
+    case 'Z4':
+      PlayZ4(board, piece);
+      break;
     default:
       break;
   }
   return board;
 }
 
+function PieceToTile(board, piece, y, x){
+  var tilePiece = Object.assign({}, piece);
+  tilePiece.x += x;
+  tilePiece.y += y;
+
+  board[tilePiece.y][tilePiece.x] = tilePiece;
+}
+
 function Play1(board, piece){
-  board[piece.y][piece.x] = piece;
+    PieceToTile(board, piece, 0, 0);
 }
 function Play2(board, piece){
   // Rotation clockwise
   switch (piece.rotation) {
     case '0':
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
       break;
     case '90':
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
       break;
     case '180':
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x-1] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, -1);
       break;
     case '270':
-      board[piece.y][piece.x] = piece;
-      board[piece.y-1][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, -1, 0);
       break;
     default:
       break;
@@ -55,24 +69,24 @@ function PlayI3(board, piece){
   // Rotation clockwise
   switch (piece.rotation) {
     case '0':
-      board[piece.y][piece.x-1] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
       break;
     case '90':
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x] = piece;
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
       break;
     case '180':
-      board[piece.y][piece.x-1] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
       break;
     case '270':
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x] = piece;
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
       break;
     default:
       break;
@@ -82,24 +96,24 @@ function PlayV3(board, piece){
   // Rotation clockwise
   switch (piece.rotation) {
     case '0':
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
-      board[piece.y+1][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      PieceToTile(board, piece, 1, 0);
       break;
     case '90':
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x] = piece;
-      board[piece.y][piece.x-1] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      PieceToTile(board, piece, 0, -1);
       break;
     case '180':
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x-1] = piece;
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, -1);
       break;
     case '270':
-      board[piece.y][piece.x] = piece;
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 1);
       break;
     default:
       break;
@@ -109,28 +123,28 @@ function PlayI4(board, piece){
   // Rotation clockwise
   switch (piece.rotation) {
     case '0':
-      board[piece.y][piece.x-1] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
-      board[piece.y][piece.x+2] = piece;
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      PieceToTile(board, piece, 0, 2);
       break;
     case '90':
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x] = piece;
-      board[piece.y+2][piece.x] = piece;
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      PieceToTile(board, piece, 2, 0);
       break;
     case '180':
-      board[piece.y][piece.x-2] = piece;
-      board[piece.y][piece.x-1] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
+      PieceToTile(board, piece, 0, -2);
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
       break;
     case '270':
-      board[piece.y-2][piece.x] = piece;
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x] = piece;
+      PieceToTile(board, piece, -2, 0);
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
       break;
     default:
       break;
@@ -140,49 +154,114 @@ function PlayO(board, piece){
   // Rotation clockwise
   switch (piece.rotation) {
     case '0':
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
-      board[piece.y+1][piece.x] = piece;
-      board[piece.y+1][piece.x+1] = piece;
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      PieceToTile(board, piece, 1, 0);
+      PieceToTile(board, piece, 1, 1);
       break;
     case '90':
-      board[piece.y][piece.x-1] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y+1][piece.x-1] = piece;
-      board[piece.y+1][piece.x] = piece;
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, -1);
+      PieceToTile(board, piece, 1, 0);
       break;
     case '180':
-      board[piece.y-1][piece.x-1] = piece;
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y][piece.x-1] = piece;
-      board[piece.y][piece.x] = piece;
+      PieceToTile(board, piece, -1, -1);
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
       break;
     case '270':
-      board[piece.y-1][piece.x] = piece;
-      board[piece.y-1][piece.x+1] = piece;
-      board[piece.y][piece.x] = piece;
-      board[piece.y][piece.x+1] = piece;
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, -1, 1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      break;
+    default:
+      break;
+  }
+}
+function PlayL4(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      PieceToTile(board, piece, 1, -1);
+      break;
+    case '90':
+      PieceToTile(board, piece, -1, -1);
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      break;
+    case '180':
+      PieceToTile(board, piece, -1, 1);
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      break;
+    case '270':
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      PieceToTile(board, piece, 1, 1);
+      break;
+    default:
+      break;
+  }
+}
+function PlayZ4(board, piece){
+  // Rotation clockwise
+  switch (piece.rotation) {
+    case '0':
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
+      PieceToTile(board, piece, 1, 1);
+      break;
+    case '90':
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, -1);
+      PieceToTile(board, piece, 1, -1);
+      break;
+    case '180':
+      PieceToTile(board, piece, -1, -1);
+      PieceToTile(board, piece, -1, 0);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 0, 1);
+      break;
+    case '270':
+      PieceToTile(board, piece, -1, 1);
+      PieceToTile(board, piece, 0, 1);
+      PieceToTile(board, piece, 0, 0);
+      PieceToTile(board, piece, 1, 0);
       break;
     default:
       break;
   }
 }
 
+
+
+
 /*
 function PlayTemplate(board, piece){
   // Rotation clockwise
   switch (piece.rotation) {
     case '0':
-      board[piece.y][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
       break;
     case '90':
-      board[piece.y][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
       break;
     case '180':
-      board[piece.y][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
       break;
     case '270':
-      board[piece.y][piece.x] = piece;
+      PieceToTile(board, piece, 0, 0);
       break;
     default:
       break;
