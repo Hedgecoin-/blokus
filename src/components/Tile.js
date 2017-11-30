@@ -25,8 +25,9 @@ export default class Tile extends Component {
         break;
       case 'GREEN':
         style.backgroundColor = '#A0D468';
+        break;
       default:
-
+        break;
     }
 
 

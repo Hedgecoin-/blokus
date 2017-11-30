@@ -9,8 +9,7 @@ import {
   boardWidth,
   boardHeight,
   parseTurn,
-  parseSavannaName,
-  parseRotation } from './Constants';
+  } from './Constants';
 
 import './App.css';
 
@@ -41,10 +40,15 @@ class App extends Component {
     this.setState({ boards: boards });
 
     // Testing states
-    this.addPiece(parseTurn("RED,2,2,2,3,1"));
-    this.addPiece(parseTurn("GREEN,2,3,3,0,1"));
-    this.addPiece(parseTurn("YELLOW,1,18,18,1,1"));
-    this.addPiece(parseTurn("BLUE,1,18,19,1,1"));
+    var name = 'line3';
+    this.addPiece(parseTurn("RED,"+name+",3,3,0,1"));
+    this.addPiece(parseTurn("RED,"+name+",7,7,1,1"));
+    this.addPiece(parseTurn("RED,"+name+",12,12,2,1"));
+    this.addPiece(parseTurn("RED,"+name+",16,16,3,1"));
+
+    // this.addPiece(parseTurn("GREEN,2,13,11,0,1"));
+    // this.addPiece(parseTurn("YELLOW,1,18,18,1,1"));
+    // this.addPiece(parseTurn("BLUE,1,18,19,1,1"));
   }
 
   addPiece = (piece) => {
@@ -94,7 +98,7 @@ class App extends Component {
     this.setState({ currentBoard: newCurrentBoard });
   }
   handleFastForward = () => {
-    const { boards, currentBoard } = this.state;
+    const { boards } = this.state;
     this.setState({ currentBoard: boards.length-1 });
   }
 
