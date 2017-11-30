@@ -11,13 +11,17 @@ import {
   parseTurn,
   } from './Constants';
 
+import { Game1, Game2 } from './Games';
+
 import './App.css';
+
+const currentGame = Game1;
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentBoard: 4,
+      currentBoard: 0,
       boards: [],
       playing: false,
     }
@@ -40,15 +44,14 @@ class App extends Component {
     this.setState({ boards: boards });
 
     // Testing states
-    var name = 'Z5';
-    this.addPiece(parseTurn("RED,"+name+",3,3,0,1"));
-    this.addPiece(parseTurn("RED,"+name+",7,7,1,1"));
-    this.addPiece(parseTurn("RED,"+name+",12,12,2,1"));
-    this.addPiece(parseTurn("RED,"+name+",16,16,3,1"));
+    // var name = '-L';
+    // this.addPiece(parseTurn("RED,"+name+",3,3,0,0"));
+    // this.addPiece(parseTurn("RED,"+name+",7,7,1,0"));
+    // this.addPiece(parseTurn("RED,"+name+",12,12,2,0"));
+    // this.addPiece(parseTurn("RED,"+name+",16,16,3,0"));
 
     // this.addPiece(parseTurn("GREEN,2,13,11,0,1"));
     // this.addPiece(parseTurn("YELLOW,1,18,18,1,1"));
-    this.addPiece(parseTurn("BLUE,1,19,19,1,1"));
   }
 
   addPiece = (piece) => {
@@ -86,16 +89,29 @@ class App extends Component {
     const { playing } = this.state;
     this.setState({ playing: !playing });
   }
+  handlePlay = () => {
+    const { playing } = this.state;
+    if(!playing){
+      setTimeout(this.handleForward, 1000);
+    }
+    this.setState({ playing: !playing });
+  }
   play = () => {
     const { playing } = this.state;
     if(playing){
-      setTimeout(this.handleForward, 1000);
+      setTimeout(this.handleForward, 100);
     }
   }
   handleForward = () => {
-    const { boards, currentBoard } = this.state;
+    const { boards, currentBoard, playing } = this.state;
+    if(currentBoard + 1 > boards.length-1 && currentBoard + 1 < Game2.length){
+      this.addPiece(parseTurn(currentGame[currentBoard]));
+    }
     var newCurrentBoard = Math.min(boards.length-1, currentBoard+1);
     this.setState({ currentBoard: newCurrentBoard });
+    if(playing){
+      this.play();
+    }
   }
   handleFastForward = () => {
     const { boards } = this.state;
@@ -108,7 +124,6 @@ class App extends Component {
 
   render() {
     const { boards, currentBoard, playing } = this.state;
-    this.play();
     return (
       <div>
         <Header />
@@ -120,7 +135,7 @@ class App extends Component {
           onForward={this.handleForward}
           onFastForward={this.handleFastForward}
         />
-        <Board board={boards[boards.length-1]} />
+        <Board board={boards[currentBoard]} />
       </div>
     );
   }

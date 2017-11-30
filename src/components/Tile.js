@@ -14,7 +14,7 @@ export default class Tile extends Component {
       style.borderBottom = "rgba(0,0,0,0)";
     }
 
-    if(x === y && center){
+    if(center){
       className += " grey";
     }
 

@@ -10,7 +10,7 @@ export function parseTurn(data){
     x: parseInt(data[2], 10),
     y: parseInt(data[3], 10),
     rotation: parseRotation(data[4]),
-    flip: data[5] === '1'
+    flipped: data[5] === "1"
   }
 }
 

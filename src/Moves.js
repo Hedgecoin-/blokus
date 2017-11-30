@@ -72,8 +72,10 @@ export function PlayPiece(board, piece){
 
 function PieceToTile(board, piece, y, x){
   var tilePiece = Object.assign({}, piece);
+  var flipped = piece.flipped ? -1 : 1;
   tilePiece.x += x;
-  tilePiece.y += y;
+  tilePiece.y += y * flipped;
+
   if(x === 0 && y === 0){
     tilePiece.center = true;
   }
@@ -694,6 +696,7 @@ function PlayZ5(board, piece){
       break;
   }
 }
+
 
 
 
