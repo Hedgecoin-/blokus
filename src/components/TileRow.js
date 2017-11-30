@@ -12,7 +12,7 @@ export default class TileRow extends Component {
 
     const tiles = [];
     for(var i=0; i<boardWidth; i++){
-      tiles.push(<Tile key={i} x={boardRow[i].x} y={boardRow[i].y} color={boardRow[i].color} />);
+      tiles.push(<Tile key={i} x={boardRow[i].x} y={boardRow[i].y} color={boardRow[i].color} center={boardRow[i].center} />);
     }
 
     return (
