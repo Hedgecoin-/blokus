@@ -26,6 +26,7 @@ class App extends Component {
     this.state = {
       currentBoard: 0,
       boards: [],
+      playing: false,
     }
   }
 
@@ -70,10 +71,26 @@ class App extends Component {
     this.setState({ boards: boards });
   }
 
+  handleFastBackward = () => {
+      this.setState({ currentBoard: 0 });
+  }
+
   handleBackward = () => {
     const { currentBoard } = this.state;
     var newCurrentBoard = Math.max(0, currentBoard-1);
     this.setState({ currentBoard: newCurrentBoard });
+  }
+
+  handlePlay = () => {
+    const { playing } = this.state;
+    this.setState({ playing: !playing });
+  }
+
+  play = () => {
+    const { playing } = this.state;
+    if(playing){
+      setTimeout(this.handleForward, 1000);
+    }
   }
 
   handleForward = () => {
@@ -82,12 +99,26 @@ class App extends Component {
     this.setState({ currentBoard: newCurrentBoard });
   }
 
-  render() {
+  handleFastForward = () => {
     const { boards, currentBoard } = this.state;
+    this.setState({ currentBoard: boards.length-1 });
+  }
+
+
+  render() {
+    const { boards, currentBoard, playing } = this.state;
+    this.play();
     return (
       <div>
         <Header />
-        <Controller onBackward={this.handleBackward} onForward={this.handleForward}/>
+        <Controller
+          onFastBackward={this.handleFastBackward}
+          onBackward={this.handleBackward}
+          onPlay={this.handlePlay}
+          playing={playing}
+          onForward={this.handleForward}
+          onFastForward={this.handleFastForward}
+        />
         <Board board={boards[currentBoard]} />
       </div>
     );
