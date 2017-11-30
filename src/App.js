@@ -40,7 +40,7 @@ class App extends Component {
     this.setState({ boards: boards });
 
     // Testing states
-    var name = 'T5';
+    var name = 'C5';
     this.addPiece(parseTurn("RED,"+name+",3,3,0,1"));
     this.addPiece(parseTurn("RED,"+name+",7,7,1,1"));
     this.addPiece(parseTurn("RED,"+name+",12,12,2,1"));
